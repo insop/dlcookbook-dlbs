@@ -1,0 +1,12 @@
+diff -reb /lvol/sfleisch/dlbs/python/nvtfcnn_benchmarks/benchmarks.py /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/benchmarks.py
+83,84c
+    finally:
+        if args.cleanup: cleanup_tmp()
+.
+77c
+            if args.cleanup:
+.
+58,59c
+        parser.add_argument('--cleanup', action='store_const', default = True, const = True, dest='cleanup')
+        parser.add_argument('--no-cleanup', action='store_const', const = False, dest='cleanup')
+.

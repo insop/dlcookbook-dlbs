@@ -1,0 +1,47 @@
+head	1.1;
+access;
+symbols;
+locks
+	sfleisch:1.1; strict;
+comment	@# @;
+
+
+1.1
+date	2018.10.09.22.31.53;	author sfleisch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#!/usr/bin/env python
+import re
+import os
+import launcherutils
+from datetime import datetime
+def gettimestamp(s,fmt="%m%d %H:%M:%S.%f",needyear=True):
+    if needyear: y=datetime.date(datetime.now()).year
+    t=datetime.strptime(s, fmt)
+    if not needyear: y=t.year
+    ts=datetime(y,t.month,t.day,t.hour,t.minute,t.second,t.microsecond)
+    ts=ts.timestamp()
+    print(ts) 
+    return ts
+
+def main():
+    with(open('0.1.2.3.4.5.6.7_alexnet_owt_4096.log','r')) as r:
+        r.readline()
+        s=launcherutils.launcherutils.grep(r,'^I(\d\d\d\d .*?) .*Solver ',group=1,occurence=launcherutils.launcherutils.GrepRet.last)
+        print(s)
+        print(gettimestamp(s))
+
+if __name__=="__main__":
+    main()
+@

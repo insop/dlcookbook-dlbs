@@ -1,0 +1,92 @@
+nohup: ignoring input
+Will execute experimenter run.
+from bench_root
+--------------------------------------------------------------
+Experimenter pid 8937. Run this to gracefully terminate me:
+	kill -USR1 8937
+I will terminate myself as soon as current benchmark finishes.
+--------------------------------------------------------------
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+Done 10 benchmarks out of 80
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+Done 20 benchmarks out of 80
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (64) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+Done 30 benchmarks out of 80
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+Done 40 benchmarks out of 80
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+Done 50 benchmarks out of 80
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (128) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+Done 60 benchmarks out of 80
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+Done 70 benchmarks out of 80
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (512) is too large for given SW/HW configuration.
+__launcher.total_experiments__=440
+__launcher.active_experiments__=80
+__launcher.failed_experiments__=69
+__launcher.skipped_experiments__=8
+__launcher.disabled_experiments__=360
+__launcher.start_time__="2018-11-10 00:56:24.930601"
+__launcher.end_time__="2018-11-10 01:54:00.307046"
+__launcher.hours__=0.9598267902777777

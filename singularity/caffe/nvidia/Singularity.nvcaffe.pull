@@ -1,0 +1,56 @@
+Bootstrap: docker
+#Change this to reflect your location
+FROM: nvcr.io/nvidia/caffe:18.09-py3
+%labels
+	Maintainer Stephen Fleischman
+    Framework TensorFlow
+    Version  !{CAFFE_VERSION}
+    Build  CUDA !{CUDA_VERSION} cuDNN !{CUDNN_VERSION} x86_64 AVX2 (Broadwell), OFED IB.
+    Installed Horovod, OpenNMT
+
+%help
+    TensorFlow !{CAFFE_VERSION} GPU Singularity Container
+    Maintainer: Stephen Fleischman
+
+%environment
+    export PATH=/opt/anaconda3/bin:/usr/local/cuda/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+    CAFFE_ROOT=/opt/caffe
+    PYCAFFE_ROOT=$CAFFE_ROOT/python
+    PYTHONPATH=$PYCAFFE_ROOT:$PYTHONPATH
+    PATH=$CAFFE_ROOT/bin:$PYCAFFE_ROOT:$PATH
+
+%post
+
+    apt-get update && apt-get install -y --no-install-recommends \
+            numactl \
+            build-essential \
+            cmake \
+            git \
+            wget \
+            libboost-all-dev \
+            libgflags-dev \
+            libgoogle-glog-dev \
+            libhdf5-serial-dev \
+            libleveldb-dev \
+            liblmdb-dev \
+            libopencv-dev \
+            libprotobuf-dev \
+            libsnappy-dev \
+            protobuf-compiler
+        rm -rf /var/lib/apt/lists/*
+    
+    git clone https://github.com/xianyi/OpenBLAS.git && \
+        cd ./OpenBLAS && \
+        make -j"$(nproc)" && make install PREFIX=/opt/OpenBLAS && \
+        cd .. && rm -rf ./OpenBLAS
+    
+    # --upgrade pip
+    pip install --no-cache-dir --upgrade setuptools wheel && pip install --no-cache-dir numpy scipy
+    
+    # This is where Caffe will be installed
+    
+    ldconfig -v
+        ldconfig -v
+    
+%runscript
+    echo "This Singularity image contains preliminary installation for TensorFlow. Through installing Bazel."

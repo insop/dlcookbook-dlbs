@@ -1,0 +1,402 @@
+Running subprocess (['/lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py', '--caffe_framework_family', 'caffe', '--caffe_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/caffe.py', '--caffe_bench_path', '/workspace/nvtfcnn_benchmarks', '--caffe_env', 'PYTHONPATH=/workspace/nvtfcnn_benchmarks CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 CUDA_VISIBLE_DEVICES=0', '--caffe_action', 'train', '--caffe_model_file', '1e2676799d434b87b717a0a74ff2284b.model.prototxt', '--caffe_solver_file', '1e2676799d434b87b717a0a74ff2284b.solver.prototxt', '--caffe_model_dir', '/workspace/model', '--caffe_display_every', '0', '--caffe_solver', "net: '/workspace/model/1e2676799d434b87b717a0a74ff2284b.model.prototxt'\n max_iter: 1000\n test_interval: 0\n snapshot: 0\n display: 1\n snapshot_after_train: false\n base_lr: 0.01\n lr_policy: 'fixed'\n solver_mode: GPU\n ", '--caffe_args', '--solver=/workspace/model/1e2676799d434b87b717a0a74ff2284b.solver.prototxt   --gpu=0', '--caffe_data_dir', '', '--caffe_mirror', 'true', '--caffe_data_mean_file', '', '--caffe_data_mean_file_path', '', '--caffe_data_mean_file_name', '', '--caffe_data_backend', 'LMDB', '--caffe_docker_args', '-i --security-opt seccomp=unconfined --pid=host --network=host --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/models/resnet_50:/workspace/model --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=:/workspace/image_mean --rm ', '--caffe_host_path', '/usr1/sfleisch/projects/caffe_tensorflow_caffe/build/tools', '--caffe_host_libpath', '', '--caffe_framework_title', '  Caffe', '--caffe_singularity_image', '', '--caffe_singularity_args', '--nv -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/models/resnet_50:/workspace/model -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache -B /lustre1/shruti/imagenet_data:/workspace/data -B :/workspace/image_mean -B /dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm ', '--caffe_nvidia_precision', 'float16', '--caffe_nvidia_solver_precision', 'FLOAT16', '--caffe_nvidia_forward_precision', 'FLOAT16', '--caffe_nvidia_backward_precision', 'FLOAT16', '--caffe_nvidia_forward_math_precision', 'FLOAT16', '--caffe_nvidia_backward_math_precision', 'FLOAT16', '--caffe_bvlc_docker_image', 'hpe/bvlc_caffe:cuda9-cudnn7', '--caffe_nvidia_docker_image', 'nvcr.io/nvidia/caffe:18.06-py2', '--caffe_intel_docker_image', 'hpe/intel_caffe:cpu', '--mxnet_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/mxnet.py', '--mxnet_env', '', '--mxnet_bench_path', '/workspace/nvtfcnn_benchmarks', '--mxnet_python_path', '/workspace', '--mxnet_cudnn_autotune', 'true', '--mxnet_kv_store', 'device', '--mxnet_data_dir', '', '--mxnet_preprocess_threads', '4', '--mxnet_prefetch_buffer', '10', '--mxnet_args', "--model=resnet_50 --model_opts='{}' --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --kv_store=device --data_dir=/workspace/data --dtype=float16 --preprocess_threads=4 --prefetch_buffer=10", '--mxnet_docker_image', 'hpe/mxnet:cuda9-cudnn7', '--mxnet_docker_args', '-ti --security-opt seccomp=unconfined --pid=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --volume=/lustre1/sfleisch/dlbs/python:/workspace --volume=/lustre1/sfleisch/dlbs/python/mxnet_benchmarks:/workspace/mxnet_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm ', '--mxnet_singularity_image', '', '--mxnet_singularity_args', '-B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /lustre1/shruti/imagenet_data:/workspace/data --nv ', '--mxnet_host_python_path', '/usr1/sfleisch/projects/mxnet/python', '--mxnet_host_libpath', '', '--tensorflow_data_dir', '/lustre1/shruti/imagenet_data', '--tensorflow_docker_args', '-ti --security-opt seccomp=unconfined --pid=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm ', '--tensorflow_docker_image', '', '--tensorflow_singularity_image', '/lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img', '--tensorflow_singularity_args', '-B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /lustre1/shruti/imagenet_data:/workspace/data --nv /lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img', '--tensorflow_bench_path', '/workspace/nvtfcnn_benchmarks', '--tensorflow_env', 'PYTHONPATH=/workspace/nvtfcnn_benchmarks CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 CUDA_VISIBLE_DEVICES=0 TF_DISABLE_CUDNN_TENSOR_OP_MATH=false', '--tensorflow_host_libpath', '', '--tensorflow_log_dir', '', '--tf_cnn_use_nccl', 'true', '--tf_cnn_var_update', 'replicated', '--tf_cnn_local_parameter_device', 'cpu', '--tf_cnn_data_name', '', '--tf_cnn_distortions', 'false', '--tf_cnn_num_intra_threads', '0', '--tf_cnn_resize_method', 'bilinear', '--tensorflow_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py', '--tf_cnn_use_xla', 'false', '--tf_cnn_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/tf_cnn_benchmarks.sh', '--tf_cnn_args', '--per_gpu_thread_count=1 --xla=false --use_fp16=true --use_tf_layers=true --staged_vars=false --model=resnet_50 --eval=false --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --display_every=1000 --device=gpu --data_format=NCHW --variable_update=replicated --all_reduce_spec=nccl --local_parameter_device=cpu --data_dir=/lustre1/shruti/imagenet_data  --distortions=false --num_intra_threads=0 --resize_method=bilinear --train_dir=', '--nvcnn_use_nccl', 'true', '--nvcnn_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/nvcnn.sh', '--nvcnn_display_every', '1000', '--nvcnn_use_distort_color', 'false', '--nvcnn_use_xla', 'false', '--nvcnn_args', '--model=resnet_50 --data_dir=/workspace/data --batch_size=64 --nstep_burnin=100 --num_batches=1100 --nccl --noxla --nodistort_color --num_gpus=1 --display_every=1000 --log_dir= --fp16', '--nvcnn_hvd_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/nvcnn_hvd.sh', '--nvcnn_hvd_display_every', '1000', '--nvcnn_hvd_use_distort_color', 'false', '--nvcnn_hvd_use_xla', 'false', '--nvcnn_hvd_args', '-m resnet_50 --data_dir=/workspace/data --batch_size=64 --nstep_burnin=100 --num_batches=1100 --noxla --nodistort_color --display_every=1000 --log_dir= --fp16', '--nvtfcnn_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py', '--nvtfcnn_display_every', '10', '--nvtfcnn_iter_unit', 'batch', '--nvtfcnn_args', '--model resnet_50 --data_dir=/workspace/data --batch_size=64 --num_iter=1000 --iter_unit=batch --display_every=10 --log_dir= --precision=fp16', '--pytorch_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/pytorch.sh', '--pytorch_env', '', '--pytorch_bench_path', '/lustre1/sfleisch/dlbs/python', '--pytorch_data_dir', '', '--pytorch_data_backend', 'caffe_lmdb', '--pytorch_cudnn_benchmark', 'true', '--pytorch_cudnn_fastest', 'false', '--pytorch_data_shuffle', 'false', '--pytorch_num_loader_threads', '4', '--pytorch_data_loader_only', 'false', '--pytorch_args', '--model=resnet_50 --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --data_dir=/lustre1/shruti/imagenet_data --data_backend=caffe_lmdb --data_shuffle=false --num_loader_threads=4 --dtype=float16 --cudnn_benchmark=true --cudnn_fastest=false --data_loader_only=false', '--pytorch_docker_image', 'hpe/pytorch:cuda9-cudnn7', '--pytorch_docker_args', '-i --security-opt seccomp=unconfined --pid=host --ipc=host --volume=/lustre1/sfleisch/dlbs/python/pytorch_benchmarks:/workspace/pytorch_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm ', '--pytorch_host_python_path', '/usr1/sfleisch/projects/pytorch/python', '--pytorch_host_libpath', '', '--exp_status', '', '--exp_status_msg', '', '--exp_proj', '', '--exp_backend', 'nvtfcnn', '--exp_framework', 'tensorflow', '--exp_framework_title', 'TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks', '--exp_framework_family', 'tensorflow', '--exp_framework_ver', '1.11.0', '--exp_framework_fork', '', '--exp_framework_commit', '', '--exp_model', 'resnet_50', '--exp_model_opts', '{}', '--exp_model_title', '', '--exp_num_warmup_batches', '100', '--exp_num_batches', '1000', '--exp_phase', 'training', '--exp_data_dir', '/lustre1/shruti/imagenet_data', '--exp_data', 'real', '--exp_data_store', '', '--exp_dtype', 'float16', '--exp_use_tensor_core', 'true', '--exp_effective_batch', '64', '--exp_replica_batch', '64', '--exp_gpus', '0', '--exp_num_local_replicas', '1', '--exp_num_local_gpus', '1', '--exp_num_replicas', '1', '--exp_num_gpus', '1', '--exp_device_type', 'gpu', '--exp_device_title', '', '--exp_cuda', '9.2', '--exp_cudnn', '7.1', '--exp_id', '1e2676799d434b87b717a0a74ff2284b', '--exp_log_file', '/lustre1/sfleisch/dlbs/benchmarks/tensorflow/nvtfcnn/v100_pcie_XL270d_gen10/1530/orig/real/float16/resnet_50_64_0_1N_test1_T1.log', '--exp_rerun', 'false', '--exp_node_id', 'apollo_6500_gen10', '--exp_num_nodes', '1', '--exp_node_nic', '', '--exp_docker', 'false', '--exp_docker_launcher', 'nvidia-docker', '--exp_docker_image', '', '--exp_docker_args', '--rm', '--exp_singularity', 'true', '--exp_singularity_launcher', 'singularity', '--exp_singularity_image', '/lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img', '--exp_singularity_args', '--nv', '--monitor_timeseries', 'time:str:1,mem_virt:float:2,mem_res:float:3,mem_shrd:float:4,cpu:float:5,mem:float:6,power:float:7,gpus:float:8:', '--monitor_frequency', '5', '--monitor_pid_folder', '/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250', '--monitor_backend_pid_folder', '/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250', '--monitor_launcher', '/lustre1/sfleisch/dlbs/scripts/resource_monitor.sh', '--runtime_launcher', '', '--runtime_cuda_cache', '/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250', '--runtime_visible_gpus', '0', '--runtime_EXPORT_CUDA_VISIBLE_DEVICES', 'CUDA_VISIBLE_DEVICES=0', '--runtime_EXPORT_CUDA_CACHE_PATH', 'CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250', '--runtime_python', 'python', '--exp_mpirun', '/lustre1/sfleisch/openmpi/bin/mpirun', '--exp_mpirun_args', '-allow-run-as-root -bind-to none -map-by slot -x NCCL_DEBUG=INFO -mca pml ob1 -mca btl openib', '--exp_mpirun_hosts', '172.31.30.40:1', '--exp_mpirun_num_tasks', '1', '--exp_sys_info', '', '--caffe2_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/caffe2.sh', '--caffe2_data_dir', '', '--caffe2_num_decode_threads', '1', '--caffe2_float16_compute', 'true', '--caffe2_data_backend', 'lmdb', '--caffe2_args', '--model=resnet_50  --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --data_dir=/lustre1/shruti/imagenet_data --data_backend=lmdb --dtype=float16 --enable_tensor_core --num_decode_threads=1 --float16_compute=true', '--caffe2_docker_image', 'hpe/caffe2:cuda9-cudnn7', '--caffe2_docker_args', '-i --security-opt seccomp=unconfined --pid=host --volume=/lustre1/sfleisch/dlbs/python/caffe2_benchmarks:/workspace/caffe2_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --volume=/lustre1/shruti/imagenet_data:/workspace/data --rm ', '--caffe2_singularity_image', '', '--caffe2_bench_path', '/lustre1/sfleisch/dlbs/python', '--caffe2_host_python_path', '/usr1/sfleisch/projects/caffe2/build', '--caffe2_host_libpath', '/usr1/sfleisch/projects/caffe2/build/caffe2', '--tensorrt_launcher', '/lustre1/sfleisch/dlbs/scripts/launchers/tensorrt.sh', '--tensorrt_env', 'CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250', '--tensorrt_cache', '/usr1/sfleisch/.tensorrt_cache', '--tensorrt_report_frequency', '-1', '--tensorrt_no_batch_times', 'false', '--tensorrt_resize_method', 'resize', '--tensorrt_num_prefetchers', '3', '--tensorrt_num_decoders', '3', '--tensorrt_prefetch_queue_size', '3', '--tensorrt_prefetch_batch_size', '64', '--tensorrt_inference_queue_size', '3', '--tensorrt_fake_decoder', 'false', '--tensorrt_fake_inference', 'false', '--tensorrt_args', '--model resnet_50 --model_file /lustre1/sfleisch/dlbs/models/resnet_50/1e2676799d434b87b717a0a74ff2284b.model.prototxt --batch_size 64 --dtype float16 --num_warmup_batches 100 --num_batches 1000  --input data --output prob --cache /usr1/sfleisch/.tensorrt_cache --report_frequency=-1  --gpus 0 --data_dir=/lustre1/shruti/imagenet_data --resize_method resize --num_prefetchers 3 --num_decoders 3 --prefetch_queue_size 3 --prefetch_batch_size 64 --inference_queue_size 3   --data_name=images', '--tensorrt_model_file', '1e2676799d434b87b717a0a74ff2284b.model.prototxt', '--tensorrt_model_dir', '/lustre1/sfleisch/dlbs/models/resnet_50', '--tensorrt_docker_image', 'hpe/tensorrt:cuda9-cudnn7', '--tensorrt_docker_args', '-i --security-opt seccomp=unconfined --pid=host --volume=/lustre1/sfleisch/dlbs/models/resnet_50:/workspace/model --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/usr1/sfleisch/.tensorrt_cache:/workspace/tensorrt_cache --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --volume=/lustre1/shruti/imagenet_data:/workspace/data --rm ', '--tensorrt_profile', 'false', '--tensorrt_input', 'data', '--tensorrt_output', 'prob', '--tensorrt_host_path', '/lustre1/sfleisch/dlbs/src/tensorrt/build', '--tensorrt_host_libpath', '', '--tensorrt_data_dir', '', '--tensorrt_data_name', 'images', '--exp_proj_parent_name', '', '--exp_proj_name', 'Apollo 6500 Gen10_TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks Singularity Test', '--exp_proj_description', "TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks's deep learning benchmarks on Apollo 6500 Gen10", '--exp_experimenter_name', 'Stephen Fleischman <stephen.fleischman@hpe.com>', '--exp_experiment_name', 'Apollo 6500 Gen10_TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks_Trial_1', '--exp_experiment_description', "TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks's deep learning benchmarks on Apollo 6500 Gen10 for DLPG (trial 1)", '--exp_node_title', 'Apollo 6500 Gen10', '--exp_gpu_title', 'Tesla V100-V100-32GB', '--runtime_env_PATH', '/usr1/sfleisch/anaconda3/bin:/lustre1/sfleisch/dlbs/scripts:/usr1/sfleisch/anaconda3/bin:/lustre1/sfleisch/openmpi/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/opt/slurm/custom:/opt/slurm/bin:/opt/slurm/sbin:/admin/slurm/custom:/admin/slurm/bin:/admin/slurm/sbin:/usr/lib64/qt-3.3/bin:/usr1/sfleisch/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin', '--exp_gpufreq', '1530', '--exp_test', 'test1', '--exp_trial', '1']) with log file '/lustre1/sfleisch/dlbs/benchmarks/tensorflow/nvtfcnn/v100_pcie_XL270d_gen10/1530/orig/real/float16/resnet_50_64_0_1N_test1_T1.log'
+
+-----------------------------------
+Variables from python entry script.
+-----------------------------------
+__caffe.framework_family__="caffe"
+__caffe.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/caffe.py"
+__caffe.bench_path__="/workspace/nvtfcnn_benchmarks"
+__caffe.env__="PYTHONPATH=/workspace/nvtfcnn_benchmarks CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 CUDA_VISIBLE_DEVICES=0"
+__caffe.action__="train"
+__caffe.model_file__="1e2676799d434b87b717a0a74ff2284b.model.prototxt"
+__caffe.solver_file__="1e2676799d434b87b717a0a74ff2284b.solver.prototxt"
+__caffe.model_dir__="/workspace/model"
+__caffe.display_every__=0
+__caffe.solver__="net: '/workspace/model/1e2676799d434b87b717a0a74ff2284b.model.prototxt'\n max_iter: 1000\n test_interval: 0\n snapshot: 0\n display: 1\n snapshot_after_train: false\n base_lr: 0.01\n lr_policy: 'fixed'\n solver_mode: GPU\n "
+__caffe.args__="--solver=/workspace/model/1e2676799d434b87b717a0a74ff2284b.solver.prototxt   --gpu=0"
+__caffe.data_dir__=""
+__caffe.mirror__=true
+__caffe.data_mean_file__=""
+__caffe.data_mean_file_path__=""
+__caffe.data_mean_file_name__=""
+__caffe.data_backend__="LMDB"
+__caffe.docker_args__="-i --security-opt seccomp=unconfined --pid=host --network=host --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/models/resnet_50:/workspace/model --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=:/workspace/image_mean --rm "
+__caffe.host_path__="/usr1/sfleisch/projects/caffe_tensorflow_caffe/build/tools"
+__caffe.host_libpath__=""
+__caffe.framework_title__="  Caffe"
+__caffe.singularity_image__=""
+__caffe.singularity_args__="--nv -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/models/resnet_50:/workspace/model -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache -B /lustre1/shruti/imagenet_data:/workspace/data -B :/workspace/image_mean -B /dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm "
+__caffe_nvidia.precision__="float16"
+__caffe_nvidia.solver_precision__="FLOAT16"
+__caffe_nvidia.forward_precision__="FLOAT16"
+__caffe_nvidia.backward_precision__="FLOAT16"
+__caffe_nvidia.forward_math_precision__="FLOAT16"
+__caffe_nvidia.backward_math_precision__="FLOAT16"
+__caffe_bvlc.docker_image__="hpe/bvlc_caffe:cuda9-cudnn7"
+__caffe_nvidia.docker_image__="nvcr.io/nvidia/caffe:18.06-py2"
+__caffe_intel.docker_image__="hpe/intel_caffe:cpu"
+__mxnet.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/mxnet.py"
+__mxnet.env__=""
+__mxnet.bench_path__="/workspace/nvtfcnn_benchmarks"
+__mxnet.python_path__="/workspace"
+__mxnet.cudnn_autotune__=true
+__mxnet.kv_store__="device"
+__mxnet.data_dir__=""
+__mxnet.preprocess_threads__=4
+__mxnet.prefetch_buffer__=10
+__mxnet.args__="--model=resnet_50 --model_opts='{}' --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --kv_store=device --data_dir=/workspace/data --dtype=float16 --preprocess_threads=4 --prefetch_buffer=10"
+__mxnet.docker_image__="hpe/mxnet:cuda9-cudnn7"
+__mxnet.docker_args__="-ti --security-opt seccomp=unconfined --pid=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --volume=/lustre1/sfleisch/dlbs/python:/workspace --volume=/lustre1/sfleisch/dlbs/python/mxnet_benchmarks:/workspace/mxnet_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm "
+__mxnet.singularity_image__=""
+__mxnet.singularity_args__="-B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /lustre1/shruti/imagenet_data:/workspace/data --nv "
+__mxnet.host_python_path__="/usr1/sfleisch/projects/mxnet/python"
+__mxnet.host_libpath__=""
+__tensorflow.data_dir__="/lustre1/shruti/imagenet_data"
+__tensorflow.docker_args__="-ti --security-opt seccomp=unconfined --pid=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm "
+__tensorflow.docker_image__=""
+__tensorflow.singularity_image__="/lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img"
+__tensorflow.singularity_args__="-B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /lustre1/shruti/imagenet_data:/workspace/data --nv /lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img"
+__tensorflow.bench_path__="/workspace/nvtfcnn_benchmarks"
+__tensorflow.env__="PYTHONPATH=/workspace/nvtfcnn_benchmarks CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 CUDA_VISIBLE_DEVICES=0 TF_DISABLE_CUDNN_TENSOR_OP_MATH=false"
+__tensorflow.host_libpath__=""
+__tensorflow.log_dir__=""
+__tf_cnn.use_nccl__=true
+__tf_cnn.var_update__="replicated"
+__tf_cnn.local_parameter_device__="cpu"
+__tf_cnn.data_name__=""
+__tf_cnn.distortions__=false
+__tf_cnn.num_intra_threads__=0
+__tf_cnn.resize_method__="bilinear"
+__tensorflow.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py"
+__tf_cnn.use_xla__=false
+__tf_cnn.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/tf_cnn_benchmarks.sh"
+__tf_cnn.args__="--per_gpu_thread_count=1 --xla=false --use_fp16=true --use_tf_layers=true --staged_vars=false --model=resnet_50 --eval=false --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --display_every=1000 --device=gpu --data_format=NCHW --variable_update=replicated --all_reduce_spec=nccl --local_parameter_device=cpu --data_dir=/lustre1/shruti/imagenet_data  --distortions=false --num_intra_threads=0 --resize_method=bilinear --train_dir="
+__nvcnn.use_nccl__=true
+__nvcnn.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/nvcnn.sh"
+__nvcnn.display_every__=1000
+__nvcnn.use_distort_color__=false
+__nvcnn.use_xla__=false
+__nvcnn.args__="--model=resnet_50 --data_dir=/workspace/data --batch_size=64 --nstep_burnin=100 --num_batches=1100 --nccl --noxla --nodistort_color --num_gpus=1 --display_every=1000 --log_dir= --fp16"
+__nvcnn_hvd.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/nvcnn_hvd.sh"
+__nvcnn_hvd.display_every__=1000
+__nvcnn_hvd.use_distort_color__=false
+__nvcnn_hvd.use_xla__=false
+__nvcnn_hvd.args__="-m resnet_50 --data_dir=/workspace/data --batch_size=64 --nstep_burnin=100 --num_batches=1100 --noxla --nodistort_color --display_every=1000 --log_dir= --fp16"
+__nvtfcnn.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py"
+__nvtfcnn.display_every__=10
+__nvtfcnn.iter_unit__="batch"
+__nvtfcnn.args__="--model resnet_50 --data_dir=/workspace/data --batch_size=64 --num_iter=1000 --iter_unit=batch --display_every=10 --log_dir= --precision=fp16"
+__pytorch.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/pytorch.sh"
+__pytorch.env__=""
+__pytorch.bench_path__="/lustre1/sfleisch/dlbs/python"
+__pytorch.data_dir__=""
+__pytorch.data_backend__="caffe_lmdb"
+__pytorch.cudnn_benchmark__=true
+__pytorch.cudnn_fastest__=false
+__pytorch.data_shuffle__=false
+__pytorch.num_loader_threads__=4
+__pytorch.data_loader_only__=false
+__pytorch.args__="--model=resnet_50 --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --data_dir=/lustre1/shruti/imagenet_data --data_backend=caffe_lmdb --data_shuffle=false --num_loader_threads=4 --dtype=float16 --cudnn_benchmark=true --cudnn_fastest=false --data_loader_only=false"
+__pytorch.docker_image__="hpe/pytorch:cuda9-cudnn7"
+__pytorch.docker_args__="-i --security-opt seccomp=unconfined --pid=host --ipc=host --volume=/lustre1/sfleisch/dlbs/python/pytorch_benchmarks:/workspace/pytorch_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm "
+__pytorch.host_python_path__="/usr1/sfleisch/projects/pytorch/python"
+__pytorch.host_libpath__=""
+__exp.status__=""
+__exp.status_msg__=""
+__exp.proj__=""
+__exp.backend__="nvtfcnn"
+__exp.framework__="tensorflow"
+__exp.framework_title__="TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks"
+__exp.framework_family__="tensorflow"
+__exp.framework_ver__="1.11.0"
+__exp.framework_fork__=""
+__exp.framework_commit__=""
+__exp.model__="resnet_50"
+__exp.model_opts__="{}"
+__exp.model_title__=""
+__exp.num_warmup_batches__=100
+__exp.num_batches__=1000
+__exp.phase__="training"
+__exp.data_dir__="/lustre1/shruti/imagenet_data"
+__exp.data__="real"
+__exp.data_store__=""
+__exp.dtype__="float16"
+__exp.use_tensor_core__=true
+__exp.effective_batch__=64
+__exp.replica_batch__=64
+__exp.gpus__="0"
+__exp.num_local_replicas__=1
+__exp.num_local_gpus__=1
+__exp.num_replicas__=1
+__exp.num_gpus__=1
+__exp.device_type__="gpu"
+__exp.device_title__=""
+__exp.cuda__="9.2"
+__exp.cudnn__="7.1"
+__exp.id__="1e2676799d434b87b717a0a74ff2284b"
+__exp.log_file__="/lustre1/sfleisch/dlbs/benchmarks/tensorflow/nvtfcnn/v100_pcie_XL270d_gen10/1530/orig/real/float16/resnet_50_64_0_1N_test1_T1.log"
+__exp.rerun__=false
+__exp.node_id__="apollo_6500_gen10"
+__exp.num_nodes__=1
+__exp.node_nic__=""
+__exp.docker__=false
+__exp.docker_launcher__="nvidia-docker"
+__exp.docker_image__=""
+__exp.docker_args__="--rm"
+__exp.singularity__=true
+__exp.singularity_launcher__="singularity"
+__exp.singularity_image__="/lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img"
+__exp.singularity_args__="--nv"
+__monitor.timeseries__="time:str:1,mem_virt:float:2,mem_res:float:3,mem_shrd:float:4,cpu:float:5,mem:float:6,power:float:7,gpus:float:8:"
+__monitor.frequency__=5
+__monitor.pid_folder__="/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250"
+__monitor.backend_pid_folder__="/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250"
+__monitor.launcher__="/lustre1/sfleisch/dlbs/scripts/resource_monitor.sh"
+__runtime.launcher__=""
+__runtime.cuda_cache__="/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250"
+__runtime.visible_gpus__="0"
+__runtime.EXPORT_CUDA_VISIBLE_DEVICES__="CUDA_VISIBLE_DEVICES=0"
+__runtime.EXPORT_CUDA_CACHE_PATH__="CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250"
+__runtime.python__="python"
+__exp.mpirun__="/lustre1/sfleisch/openmpi/bin/mpirun"
+__exp.mpirun_args__="-allow-run-as-root -bind-to none -map-by slot -x NCCL_DEBUG=INFO -mca pml ob1 -mca btl openib"
+__exp.mpirun_hosts__="172.31.30.40:1"
+__exp.mpirun_num_tasks__="1"
+__exp.sys_info__=""
+__caffe2.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/caffe2.sh"
+__caffe2.data_dir__=""
+__caffe2.num_decode_threads__=1
+__caffe2.float16_compute__=true
+__caffe2.data_backend__="lmdb"
+__caffe2.args__="--model=resnet_50  --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --data_dir=/lustre1/shruti/imagenet_data --data_backend=lmdb --dtype=float16 --enable_tensor_core --num_decode_threads=1 --float16_compute=true"
+__caffe2.docker_image__="hpe/caffe2:cuda9-cudnn7"
+__caffe2.docker_args__="-i --security-opt seccomp=unconfined --pid=host --volume=/lustre1/sfleisch/dlbs/python/caffe2_benchmarks:/workspace/caffe2_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --volume=/lustre1/shruti/imagenet_data:/workspace/data --rm "
+__caffe2.singularity_image__=""
+__caffe2.bench_path__="/lustre1/sfleisch/dlbs/python"
+__caffe2.host_python_path__="/usr1/sfleisch/projects/caffe2/build"
+__caffe2.host_libpath__="/usr1/sfleisch/projects/caffe2/build/caffe2"
+__tensorrt.launcher__="/lustre1/sfleisch/dlbs/scripts/launchers/tensorrt.sh"
+__tensorrt.env__="CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250"
+__tensorrt.cache__="/usr1/sfleisch/.tensorrt_cache"
+__tensorrt.report_frequency__=-1
+__tensorrt.no_batch_times__=false
+__tensorrt.resize_method__="resize"
+__tensorrt.num_prefetchers__=3
+__tensorrt.num_decoders__=3
+__tensorrt.prefetch_queue_size__=3
+__tensorrt.prefetch_batch_size__=64
+__tensorrt.inference_queue_size__=3
+__tensorrt.fake_decoder__=false
+__tensorrt.fake_inference__=false
+__tensorrt.args__="--model resnet_50 --model_file /lustre1/sfleisch/dlbs/models/resnet_50/1e2676799d434b87b717a0a74ff2284b.model.prototxt --batch_size 64 --dtype float16 --num_warmup_batches 100 --num_batches 1000  --input data --output prob --cache /usr1/sfleisch/.tensorrt_cache --report_frequency=-1  --gpus 0 --data_dir=/lustre1/shruti/imagenet_data --resize_method resize --num_prefetchers 3 --num_decoders 3 --prefetch_queue_size 3 --prefetch_batch_size 64 --inference_queue_size 3   --data_name=images"
+__tensorrt.model_file__="1e2676799d434b87b717a0a74ff2284b.model.prototxt"
+__tensorrt.model_dir__="/lustre1/sfleisch/dlbs/models/resnet_50"
+__tensorrt.docker_image__="hpe/tensorrt:cuda9-cudnn7"
+__tensorrt.docker_args__="-i --security-opt seccomp=unconfined --pid=host --volume=/lustre1/sfleisch/dlbs/models/resnet_50:/workspace/model --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/usr1/sfleisch/.tensorrt_cache:/workspace/tensorrt_cache --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --volume=/lustre1/shruti/imagenet_data:/workspace/data --rm "
+__tensorrt.profile__=false
+__tensorrt.input__="data"
+__tensorrt.output__="prob"
+__tensorrt.host_path__="/lustre1/sfleisch/dlbs/src/tensorrt/build"
+__tensorrt.host_libpath__=""
+__tensorrt.data_dir__=""
+__tensorrt.data_name__="images"
+__exp.proj_parent_name__=""
+__exp.proj_name__="Apollo 6500 Gen10_TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks Singularity Test"
+__exp.proj_description__="TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks's deep learning benchmarks on Apollo 6500 Gen10"
+__exp.experimenter_name__="Stephen Fleischman <stephen.fleischman@hpe.com>"
+__exp.experiment_name__="Apollo 6500 Gen10_TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks_Trial_1"
+__exp.experiment_description__="TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks's deep learning benchmarks on Apollo 6500 Gen10 for DLPG (trial 1)"
+__exp.node_title__="Apollo 6500 Gen10"
+__exp.gpu_title__="Tesla V100-V100-32GB"
+__runtime.env.PATH__="/usr1/sfleisch/anaconda3/bin:/lustre1/sfleisch/dlbs/scripts:/usr1/sfleisch/anaconda3/bin:/lustre1/sfleisch/openmpi/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/opt/slurm/custom:/opt/slurm/bin:/opt/slurm/sbin:/admin/slurm/custom:/admin/slurm/bin:/admin/slurm/sbin:/usr/lib64/qt-3.3/bin:/usr1/sfleisch/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin"
+__exp.gpufreq__="1530"
+__exp.test__="test1"
+__exp.trial__=1
+
+----------------------------
+Starting framework launcher.
+----------------------------
+['python', '/workspace/nvtfcnn_benchmarks/cnn/resnet.py', '--data_dir=/workspace/data', '--batch_size=64', '--num_iter=1000', '--iter_unit=batch', '--display_every=10', '--log_dir=', '--precision=fp16', '--layers=50']
+PY 3.6.5 |Anaconda, Inc.| (default, Apr 29 2018, 16:14:56) 
+[GCC 7.2.0]
+TF 1.11.0
+--------------------------------------------------------------------------
+WARNING: There are more than one active ports on host 'zeusn040', but the
+default subnet GID prefix was detected on more than one of these
+ports.  If these ports are connected to different physical IB
+networks, this configuration will fail in Open MPI.  This version of
+Open MPI requires that every physically separate IB subnet that is
+used between connected MPI processes must have different subnet ID
+values.
+
+Please see this FAQ entry for more details:
+
+  http://www.open-mpi.org/faq/?category=openfabrics#ofa-default-subnet-gid
+
+NOTE: You can turn off this warning by setting the MCA parameter
+      btl_openib_warn_default_gid_prefix to 0.
+--------------------------------------------------------------------------
+Script arguments:
+  --layers 50
+  --data_dir /workspace/data
+  --batch_size 64
+  --num_iter 1000
+  --iter_unit batch
+  --log_dir 
+  --display_every 10
+  --precision fp16
+/opt/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+WARNING:tensorflow:Using temporary folder as model directory: /tmp/tmptq5pw456
+Training
+2018-11-10 04:41:51.549962: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX512F
+2018-11-10 04:41:52.077066: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1411] Found device 0 with properties: 
+name: Tesla V100-SXM2-32GB major: 7 minor: 0 memoryClockRate(GHz): 1.53
+pciBusID: 0000:15:00.0
+totalMemory: 31.75GiB freeMemory: 31.34GiB
+2018-11-10 04:41:52.077107: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-10 04:41:54.157177: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-10 04:41:54.157220: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-10 04:41:54.157226: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-10 04:41:54.157581: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30397 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:15:00.0, compute capability: 7.0)
+  Step Epoch Img/sec   Loss  LR
+     1   0.0     9.2  7.536  8.507 2.00000
+    10   0.0   190.7  7.911  8.884 1.99998
+    20   0.0   627.1  7.632  8.608 1.99996
+    30   0.0   625.5  7.377  8.358 1.99994
+    40   0.0   625.1  7.139  8.124 1.99991
+    50   0.0   625.9  6.974  7.956 1.99989
+    60   0.0   625.8  7.151  8.127 1.99987
+    70   0.0   629.3  6.996  7.965 1.99985
+    80   0.0   630.6  7.068  8.026 1.99982
+    90   0.0   631.2  7.003  7.949 1.99980
+   100   0.0   628.8  6.981  7.908 1.99978
+   110   0.0   626.4  6.892  7.798 1.99976
+   120   0.0   631.1  7.008  7.891 1.99974
+   130   0.0   629.7  6.912  7.775 1.99971
+   140   0.0   630.9  6.976  7.817 1.99969
+   150   0.0   628.3  6.976  7.793 1.99967
+   160   0.0   613.1  6.937  7.730 1.99965
+   170   0.0   625.2  6.963  7.735 1.99962
+   180   0.0   629.2  6.979  7.728 1.99960
+   190   0.0   630.3  6.871  7.598 1.99958
+   200   0.0   630.9  6.907  7.612 1.99956
+   210   0.0   630.8  6.892  7.577 1.99954
+   220   0.0   628.9  6.922  7.587 1.99951
+   230   0.0   628.1  6.886  7.532 1.99949
+   240   0.0   628.1  6.882  7.511 1.99947
+   250   0.0   627.0  6.901  7.512 1.99945
+   260   0.0   627.9  6.860  7.456 1.99942
+   270   0.0   627.7  6.853  7.433 1.99940
+   280   0.0   602.1  6.871  7.436 1.99938
+   290   0.0   628.7  6.788  7.337 1.99936
+   300   0.0   626.4  6.919  7.455 1.99934
+   310   0.0   625.1  6.911  7.434 1.99931
+   320   0.0   625.1  6.798  7.308 1.99929
+   330   0.0   620.0  6.827  7.325 1.99927
+   340   0.0   626.0  6.887  7.373 1.99925
+   350   0.0   625.7  6.858  7.331 1.99923
+   360   0.0   623.3  6.804  7.264 1.99920
+   370   0.0   624.3  6.742  7.191 1.99918
+   380   0.0   626.3  6.869  7.307 1.99916
+   390   0.0   625.5  6.818  7.245 1.99914
+   400   0.0   624.1  6.755  7.171 1.99911
+   410   0.0   623.4  6.828  7.233 1.99909
+   420   0.0   631.9  6.777  7.172 1.99907
+   430   0.0   631.3  6.876  7.262 1.99905
+   440   0.0   631.1  6.702  7.078 1.99903
+   450   0.0   628.9  6.834  7.202 1.99900
+   460   0.0   629.4  6.728  7.090 1.99898
+   470   0.0   630.3  6.724  7.079 1.99896
+   480   0.0   626.2  6.731  7.078 1.99894
+   490   0.0   626.0  6.773  7.114 1.99891
+   500   0.0   627.7  6.686  7.020 1.99889
+   510   0.0   604.1  6.692  7.020 1.99887
+   520   0.0   624.9  6.860  7.181 1.99885
+   530   0.0   624.6  6.855  7.170 1.99883
+   540   0.0   624.5  6.760  7.068 1.99880
+   550   0.0   623.9  6.798  7.101 1.99878
+   560   0.0   624.9  6.777  7.075 1.99876
+   570   0.0   625.3  6.823  7.115 1.99874
+   580   0.0   625.4  6.792  7.079 1.99871
+   590   0.0   624.6  6.870  7.152 1.99869
+   600   0.0   625.0  6.740  7.018 1.99867
+   610   0.0   624.3  6.751  7.024 1.99865
+   620   0.0   624.2  6.771  7.041 1.99863
+   630   0.0   624.8  6.775  7.040 1.99860
+   640   0.0   625.4  6.737  6.998 1.99858
+   650   0.0   624.6  6.750  7.008 1.99856
+   660   0.0   625.6  6.709  6.963 1.99854
+   670   0.0   626.9  6.745  6.996 1.99851
+   680   0.0   626.5  7.045  7.292 1.99849
+   690   0.0   628.0  6.787  7.032 1.99847
+   700   0.0   627.6  6.729  6.971 1.99845
+   710   0.0   626.9  6.761  7.000 1.99843
+   720   0.0   628.2  6.614  6.849 1.99840
+   730   0.0   628.2  6.711  6.943 1.99838
+   740   0.0   627.9  6.733  6.963 1.99836
+   750   0.0   622.0  6.678  6.905 1.99834
+   760   0.0   630.1  6.804  7.028 1.99831
+   770   0.0   628.8  6.760  6.981 1.99829
+   780   0.0   629.8  6.846  7.065 1.99827
+   790   0.0   621.2  6.702  6.919 1.99825
+   800   0.0   617.1  6.709  6.923 1.99823
+   810   0.0   616.9  6.769  6.982 1.99820
+   820   0.0   621.0  6.744  6.955 1.99818
+   830   0.0   628.1  6.758  6.966 1.99816
+   840   0.0   618.8  6.692  6.899 1.99814
+   850   0.0   619.6  6.669  6.874 1.99812
+   860   0.0   617.2  6.722  6.925 1.99809
+   870   0.0   618.5  6.639  6.841 1.99807
+   880   0.0   626.3  6.709  6.910 1.99805
+   890   0.0   620.4  6.838  7.038 1.99803
+   900   0.0   617.7  6.632  6.831 1.99800
+   910   0.0   618.2  6.600  6.797 1.99798
+   920   0.0   619.3  6.847  7.043 1.99796
+   930   0.0   616.5  6.648  6.843 1.99794
+   940   0.0   620.0  6.687  6.881 1.99792
+   950   0.0   620.1  6.710  6.903 1.99789
+   960   0.0   618.0  6.722  6.914 1.99787
+   970   0.0   617.7  6.754  6.945 1.99785
+   980   0.0   619.1  6.572  6.763 1.99783
+   990   0.0   619.6  6.684  6.874 1.99780
+  1000   0.0   369.7  6.489  6.679 1.99778
+----------------------------------------------------------------
+Images/sec: 571.0 +/- 36.6 (jitter = 3.7)
+----------------------------------------------------------------
+__exp.framework_ver__=1.11.0
+__results.throughput__=570.980301095023
+__results.throughput_uncertainty__=36.60054308554232
+__results.throughput_jitter__=3.714917412298109
+__results.time__=112087.92996406555
+__results.time_data__=[6944.244384765625, 2200.544834136963, 103.03997993469238, 103.00254821777344, 102.90408134460449, 102.41532325744629, 102.23197937011719, 102.35977172851562, 102.06270217895508, 101.95732116699219, 102.47135162353516, 102.10466384887695, 101.8216609954834, 101.80830955505371, 102.05197334289551, 102.07176208496094, 101.79901123046875, 102.24270820617676, 102.11586952209473, 102.15950012207031, 101.87554359436035, 102.03838348388672, 102.4618148803711, 102.30135917663574, 102.59604454040527, 102.42366790771484, 101.97305679321289, 102.56791114807129, 102.7224063873291, 102.24342346191406, 102.38337516784668, 102.45037078857422, 102.43892669677734, 102.19144821166992, 102.22339630126953, 102.38051414489746, 102.22220420837402, 102.50091552734375, 102.59246826171875, 102.3709774017334, 102.24533081054688, 102.2496223449707, 102.78177261352539, 102.80346870422363, 102.52046585083008, 102.10776329040527, 102.05388069152832, 102.0514965057373, 101.65214538574219, 102.09894180297852, 102.38122940063477, 102.39171981811523, 102.39577293395996, 101.51410102844238, 102.23150253295898, 102.1268367767334, 102.31781005859375, 102.45442390441895, 102.47611999511719, 102.39243507385254, 102.28991508483887, 102.12898254394531, 101.66335105895996, 101.69863700866699, 101.78399085998535, 101.42207145690918, 101.80830955505371, 101.52816772460938, 101.40490531921387, 101.20320320129395, 101.39775276184082, 101.65762901306152, 101.63092613220215, 101.38154029846191, 101.73225402832031, 101.68957710266113, 101.5009880065918, 101.12118721008301, 101.41229629516602, 101.33481025695801, 101.31239891052246, 101.41491889953613, 101.3803482055664, 101.86433792114258, 101.64618492126465, 101.39250755310059, 101.28140449523926, 101.15337371826172, 101.32789611816406, 101.22108459472656, 101.16100311279297, 101.43709182739258, 101.58061981201172, 102.19478607177734, 101.91845893859863, 102.02956199645996, 101.98712348937988, 101.92084312438965, 102.10728645324707, 101.5465259552002, 103.15418243408203, 102.4622917175293, 101.89151763916016, 101.87220573425293, 103.5466194152832, 102.21624374389648, 101.84884071350098, 101.72057151794434, 101.64165496826172, 101.43518447875977, 101.07994079589844, 101.53031349182129, 101.33171081542969, 101.39846801757812, 101.61471366882324, 101.24945640563965, 101.5620231628418, 101.38416290283203, 101.34506225585938, 101.59444808959961, 101.44782066345215, 101.85408592224121, 101.57990455627441, 101.55344009399414, 101.38630867004395, 101.45878791809082, 101.91798210144043, 102.16307640075684, 101.69649124145508, 101.37677192687988, 101.11641883850098, 101.3495922088623, 101.04036331176758, 101.21583938598633, 101.26852989196777, 101.77445411682129, 101.10354423522949, 101.53794288635254, 102.30398178100586, 101.72843933105469, 101.49669647216797, 101.90844535827637, 102.01573371887207, 101.67741775512695, 101.9752025604248, 101.54891014099121, 101.63760185241699, 102.5087833404541, 102.14662551879883, 101.75633430480957, 101.90582275390625, 102.15568542480469, 101.69577598571777, 102.11420059204102, 124.04251098632812, 102.7231216430664, 102.54812240600586, 102.25677490234375, 102.40054130554199, 102.11396217346191, 105.56745529174805, 102.508544921875, 102.04243659973145, 102.06890106201172, 102.29325294494629, 101.82523727416992, 101.84049606323242, 101.90820693969727, 101.92990303039551, 101.6073226928711, 102.12182998657227, 101.76777839660645, 102.23507881164551, 101.69649124145508, 101.88603401184082, 101.61614418029785, 101.55582427978516, 101.39608383178711, 101.46641731262207, 101.36866569519043, 101.71341896057129, 101.21846199035645, 101.15385055541992, 101.48453712463379, 101.51553153991699, 101.14049911499023, 101.30119323730469, 101.91988945007324, 101.92632675170898, 102.00333595275879, 101.96375846862793, 101.17983818054199, 101.28283500671387, 101.36938095092773, 101.60398483276367, 101.41587257385254, 101.29737854003906, 101.52506828308105, 101.29523277282715, 101.43733024597168, 103.25407981872559, 101.0134220123291, 101.55940055847168, 101.2108325958252, 101.05705261230469, 101.4554500579834, 101.29833221435547, 101.35698318481445, 101.17316246032715, 101.15647315979004, 101.23276710510254, 101.96232795715332, 102.3702621459961, 102.01716423034668, 101.60636901855469, 102.01144218444824, 101.7155647277832, 101.61447525024414, 101.67217254638672, 101.50718688964844, 101.40609741210938, 101.99213027954102, 102.41532325744629, 101.86886787414551, 102.10490226745605, 101.7923355102539, 101.7448902130127, 101.82809829711914, 102.00786590576172, 101.84741020202637, 102.09393501281738, 102.01334953308105, 102.12373733520508, 101.67360305786133, 101.64427757263184, 101.94253921508789, 101.8526554107666, 102.02193260192871, 101.99761390686035, 101.58586502075195, 102.1268367767334, 102.25296020507812, 102.14900970458984, 101.8514633178711, 101.98259353637695, 101.9585132598877, 102.4627685546875, 102.1120548248291, 101.88841819763184, 101.89700126647949, 101.77326202392578, 101.78256034851074, 101.84335708618164, 102.19812393188477, 102.16927528381348, 102.38814353942871, 101.84049606323242, 101.69625282287598, 101.89485549926758, 101.73892974853516, 101.96161270141602, 101.88579559326172, 101.77183151245117, 101.61423683166504, 101.7301082611084, 101.98187828063965, 102.14471817016602, 101.99785232543945, 102.294921875, 102.15282440185547, 102.16975212097168, 102.41127014160156, 102.00643539428711, 102.32973098754883, 102.39315032958984, 102.3557186126709, 141.75701141357422, 103.11079025268555, 102.24461555480957, 102.22744941711426, 102.15330123901367, 101.99785232543945, 101.66525840759277, 101.55391693115234, 102.0667552947998, 101.67598724365234, 101.73678398132324, 101.68838500976562, 101.61781311035156, 101.83310508728027, 102.03313827514648, 102.26917266845703, 102.56528854370117, 102.15234756469727, 102.35929489135742, 102.12159156799316, 101.98497772216797, 102.38528251647949, 101.90629959106445, 101.92489624023438, 103.25789451599121, 102.47015953063965, 102.60152816772461, 102.40364074707031, 101.81093215942383, 101.49621963500977, 102.66327857971191, 102.02407836914062, 102.2188663482666, 102.94103622436523, 102.40387916564941, 102.06437110900879, 102.38218307495117, 102.2329330444336, 102.30040550231934, 102.61201858520508, 102.39553451538086, 102.56385803222656, 102.4167537689209, 102.47254371643066, 102.10227966308594, 102.33306884765625, 102.40459442138672, 102.66661643981934, 102.62179374694824, 109.36450958251953, 103.53207588195801, 102.50020027160645, 102.37288475036621, 102.43439674377441, 102.16879844665527, 102.22268104553223, 102.24509239196777, 102.29325294494629, 102.2031307220459, 102.3719310760498, 102.08582878112793, 102.29325294494629, 102.34975814819336, 102.07915306091309, 102.21195220947266, 102.12087631225586, 102.30779647827148, 102.21600532531738, 102.08749771118164, 102.15234756469727, 102.35261917114258, 102.40960121154785, 102.30469703674316, 102.62918472290039, 102.64921188354492, 102.33426094055176, 102.6313304901123, 102.66232490539551, 102.75053977966309, 102.73480415344238, 102.68735885620117, 102.7219295501709, 102.64992713928223, 102.93745994567871, 102.47516632080078, 102.73408889770508, 102.66256332397461, 102.28228569030762, 102.59079933166504, 102.51760482788086, 102.38242149353027, 102.71239280700684, 102.48231887817383, 102.24604606628418, 102.16975212097168, 101.71175003051758, 102.26249694824219, 102.14424133300781, 101.98736190795898, 102.27537155151367, 102.22482681274414, 102.39028930664062, 102.23865509033203, 102.39315032958984, 102.42581367492676, 102.5247573852539, 102.39100456237793, 102.06079483032227, 102.41460800170898, 102.22959518432617, 102.47516632080078, 102.24103927612305, 102.27179527282715, 102.14710235595703, 102.51879692077637, 102.59389877319336, 102.54216194152832, 102.62417793273926, 102.14996337890625, 102.26202011108398, 102.60295867919922, 103.03640365600586, 102.8292179107666, 102.28705406188965, 103.76119613647461, 102.46086120605469, 102.26821899414062, 102.00929641723633, 102.1573543548584, 103.07192802429199, 103.3620834350586, 103.07168960571289, 102.6923656463623, 101.82499885559082, 101.44209861755371, 101.06229782104492, 101.40061378479004, 101.22370719909668, 101.21011734008789, 101.58038139343262, 101.26805305480957, 101.37534141540527, 101.07898712158203, 101.19986534118652, 101.18961334228516, 100.79431533813477, 100.99625587463379, 101.8824577331543, 102.11181640625, 101.96709632873535, 101.5467643737793, 100.94499588012695, 101.11355781555176, 101.23014450073242, 101.83954238891602, 101.72891616821289, 101.33218765258789, 101.0746955871582, 101.31621360778809, 101.39226913452148, 101.32122039794922, 101.4261245727539, 100.86488723754883, 101.8216609954834, 101.41420364379883, 102.57101058959961, 101.99499130249023, 101.80497169494629, 101.71318054199219, 101.58252716064453, 102.14638710021973, 101.56059265136719, 101.30453109741211, 101.56607627868652, 101.23920440673828, 101.5779972076416, 101.96328163146973, 102.08415985107422, 101.48262977600098, 101.3498306274414, 101.90343856811523, 101.81832313537598, 101.72486305236816, 101.65143013000488, 101.66478157043457, 101.35078430175781, 101.1500358581543, 101.25064849853516, 101.15289688110352, 101.52149200439453, 101.32050514221191, 101.41372680664062, 102.4787425994873, 102.06961631774902, 102.3561954498291, 102.25844383239746, 102.18930244445801, 102.2646427154541, 102.32949256896973, 102.00858116149902, 101.9597053527832, 102.00762748718262, 102.38361358642578, 102.27322578430176, 102.50115394592285, 102.36144065856934, 102.17857360839844, 102.20646858215332, 101.99928283691406, 102.12063789367676, 102.20170021057129, 102.44464874267578, 102.2481918334961, 102.10299491882324, 102.10657119750977, 101.78041458129883, 102.1120548248291, 101.87935829162598, 101.93800926208496, 101.80330276489258, 102.04672813415527, 101.92275047302246, 102.12087631225586, 101.81570053100586, 103.76405715942383, 102.91266441345215, 102.42128372192383, 102.30278968811035, 102.3101806640625, 102.38885879516602, 102.91481018066406, 135.3142261505127, 102.77390480041504, 102.28943824768066, 102.26321220397949, 102.40936279296875, 102.1890640258789, 102.17571258544922, 102.40793228149414, 102.44297981262207, 102.56409645080566, 102.60868072509766, 102.45919227600098, 102.60987281799316, 102.27417945861816, 102.07962989807129, 102.34618186950684, 102.83899307250977, 102.39505767822266, 102.6906967163086, 102.55122184753418, 102.2026538848877, 102.68449783325195, 102.54192352294922, 102.1413803100586, 102.30445861816406, 102.63252258300781, 102.89645195007324, 102.75888442993164, 102.27489471435547, 102.31375694274902, 102.5533676147461, 102.58889198303223, 102.29921340942383, 102.6449203491211, 103.14297676086426, 102.52833366394043, 102.57482528686523, 102.36501693725586, 101.90653800964355, 102.46777534484863, 102.36883163452148, 102.4630069732666, 103.40619087219238, 102.45418548583984, 102.7071475982666, 102.22744941711426, 102.29134559631348, 102.22554206848145, 102.39386558532715, 102.46086120605469, 102.44107246398926, 102.69665718078613, 102.18429565429688, 102.16784477233887, 102.1277904510498, 102.2348403930664, 101.83882713317871, 102.30827331542969, 102.49447822570801, 102.47993469238281, 102.7066707611084, 102.51641273498535, 102.59366035461426, 102.66828536987305, 102.48470306396484, 102.47015953063965, 102.41436958312988, 102.52904891967773, 102.07533836364746, 102.0963191986084, 101.93443298339844, 102.264404296875, 102.38957405090332, 102.39529609680176, 102.42581367492676, 102.76269912719727, 102.56266593933105, 102.26917266845703, 102.3261547088623, 102.47921943664551, 102.48708724975586, 102.46086120605469, 102.53572463989258, 102.13947296142578, 102.12230682373047, 102.27346420288086, 102.56075859069824, 102.45203971862793, 102.42462158203125, 102.2953987121582, 102.5240421295166, 102.64253616333008, 102.54955291748047, 103.70326042175293, 102.58316993713379, 102.22387313842773, 102.01525688171387, 102.03003883361816, 102.48708724975586, 102.57959365844727, 102.50520706176758, 102.5087833404541, 102.5855541229248, 102.47611999511719, 102.81038284301758, 102.47302055358887, 102.40411758422852, 102.3855209350586, 102.7984619140625, 102.57124900817871, 102.16116905212402, 102.48422622680664, 102.82349586486816, 102.63276100158691, 102.20003128051758, 102.44488716125488, 102.27608680725098, 102.45585441589355, 102.11873054504395, 102.33926773071289, 102.88453102111816, 102.39958763122559, 102.54168510437012, 102.61178016662598, 102.21624374389648, 102.57554054260254, 102.14018821716309, 102.03361511230469, 102.17142105102539, 102.49757766723633, 102.1127700805664, 102.47230529785156, 102.48422622680664, 102.33139991760254, 102.57625579833984, 102.57315635681152, 102.87332534790039, 102.46038436889648, 102.28824615478516, 102.36144065856934, 102.53143310546875, 102.3855209350586, 102.30326652526855, 101.91845893859863, 102.02836990356445, 102.51855850219727, 102.30064392089844, 102.49161720275879, 102.4937629699707, 102.51903533935547, 102.24342346191406, 102.05507278442383, 102.50520706176758, 102.34403610229492, 101.93634033203125, 101.82380676269531, 102.05316543579102, 101.99165344238281, 101.88746452331543, 101.93371772766113, 102.36287117004395, 102.00643539428711, 102.5688648223877, 102.51426696777344, 102.33211517333984, 102.47230529785156, 102.2186279296875, 101.97091102600098, 102.20742225646973, 101.89962387084961, 101.8214225769043, 101.86314582824707, 102.16712951660156, 101.76634788513184, 102.13899612426758, 102.16045379638672, 101.50551795959473, 101.45783424377441, 102.0193099975586, 101.7916202545166, 101.78828239440918, 101.86243057250977, 102.5848388671875, 102.4179458618164, 101.84264183044434, 101.8521785736084, 101.94563865661621, 102.10323333740234, 101.8681526184082, 102.12039947509766, 102.02932357788086, 101.99260711669922, 101.61447525024414, 103.14536094665527, 102.37360000610352, 102.36811637878418, 102.15306282043457, 102.15187072753906, 102.06389427185059, 101.86982154846191, 101.70316696166992, 101.40085220336914, 101.60541534423828, 101.53388977050781, 101.79638862609863, 101.43136978149414, 101.59730911254883, 101.72104835510254, 101.87602043151855, 102.07390785217285, 102.31852531433105, 102.21672058105469, 102.2028923034668, 102.06413269042969, 102.14567184448242, 101.87387466430664, 101.84168815612793, 102.02527046203613, 101.82666778564453, 101.83525085449219, 101.60613059997559, 101.62043571472168, 102.01287269592285, 101.70364379882812, 101.44400596618652, 101.58658027648926, 101.9446849822998, 102.13208198547363, 102.06389427185059, 102.34713554382324, 102.36215591430664, 101.87888145446777, 101.77111625671387, 101.75657272338867, 101.43542289733887, 102.95748710632324, 102.42915153503418, 102.081298828125, 101.94754600524902, 101.81975364685059, 101.44615173339844, 110.41808128356934, 102.72216796875, 102.22911834716797, 102.1573543548584, 101.95493698120117, 101.5920639038086, 101.2420654296875, 100.77857971191406, 101.10688209533691, 101.48835182189941, 101.50909423828125, 101.58562660217285, 101.64165496826172, 101.69291496276855, 101.68337821960449, 101.47595405578613, 101.80902481079102, 101.90820693969727, 101.98974609375, 101.94063186645508, 101.77016258239746, 101.91559791564941, 101.51338577270508, 101.48286819458008, 101.77040100097656, 101.40395164489746, 101.6836166381836, 101.50361061096191, 101.64284706115723, 101.39060020446777, 101.19295120239258, 102.53071784973145, 101.66120529174805, 103.44552993774414, 102.74291038513184, 103.25479507446289, 103.35373878479004, 103.23834419250488, 103.20425033569336, 103.15847396850586, 102.70142555236816, 103.45673561096191, 103.76954078674316, 103.57332229614258, 103.9576530456543, 104.02059555053711, 103.36875915527344, 103.24645042419434, 103.42073440551758, 103.76238822937012, 103.65724563598633, 104.32744026184082, 104.90822792053223, 103.70016098022461, 103.61409187316895, 103.6224365234375, 103.50394248962402, 103.43480110168457, 103.42216491699219, 103.72447967529297, 103.84130477905273, 103.70182991027832, 103.8064956665039, 103.90853881835938, 104.08926010131836, 103.76644134521484, 103.68871688842773, 102.54168510437012, 102.54859924316406, 102.1127700805664, 102.05674171447754, 102.1115779876709, 102.04648971557617, 102.12898254394531, 101.90749168395996, 101.71627998352051, 101.64237022399902, 101.84073448181152, 101.92680358886719, 102.07056999206543, 101.96280479431152, 101.77993774414062, 102.18238830566406, 103.2721996307373, 103.67369651794434, 103.48248481750488, 103.98459434509277, 103.47986221313477, 103.73139381408691, 103.37066650390625, 103.10769081115723, 103.93476486206055, 103.52182388305664, 103.40714454650879, 103.04546356201172, 103.5618782043457, 103.12342643737793, 103.36589813232422, 102.9510498046875, 102.93912887573242, 103.15203666687012, 103.92069816589355, 103.91879081726074, 103.91402244567871, 103.38902473449707, 103.68990898132324, 103.66225242614746, 103.75285148620605, 103.26099395751953, 103.77669334411621, 103.78265380859375, 103.83725166320801, 103.64770889282227, 103.54328155517578, 103.46221923828125, 103.25908660888672, 103.12509536743164, 103.73878479003906, 103.56616973876953, 103.64699363708496, 103.41978073120117, 103.39522361755371, 101.90749168395996, 102.0054817199707, 101.81617736816406, 101.68075561523438, 101.45425796508789, 101.8531322479248, 102.11181640625, 101.84907913208008, 104.0496826171875, 103.21378707885742, 103.30414772033691, 103.3468246459961, 103.31416130065918, 103.26457023620605, 102.96368598937988, 103.00540924072266, 102.99849510192871, 103.27863693237305, 102.99897193908691, 103.12986373901367, 103.21402549743652, 103.61504554748535, 103.60860824584961, 103.85799407958984, 103.91855239868164, 103.83319854736328, 103.64985466003418, 103.66415977478027, 103.35063934326172, 103.42168807983398, 104.68554496765137, 102.47445106506348, 102.48446464538574, 103.8355827331543, 103.77955436706543, 103.55830192565918, 104.01439666748047, 103.61123085021973, 103.41572761535645, 103.44123840332031, 103.34157943725586, 103.16705703735352, 103.17635536193848, 103.2419204711914, 103.21855545043945, 103.3167839050293, 103.18541526794434, 103.12342643737793, 103.96099090576172, 103.62052917480469, 103.7893295288086, 103.57832908630371, 103.87516021728516, 104.06184196472168, 103.8367748260498, 103.94644737243652, 103.88350486755371, 103.7454605102539, 103.81722450256348, 103.53755950927734, 104.27260398864746, 103.86395454406738, 103.4543514251709, 103.27529907226562, 103.15394401550293, 102.65636444091797, 102.91266441345215, 102.92959213256836, 102.79273986816406, 102.92553901672363, 103.24573516845703, 103.45196723937988, 103.3790111541748, 102.79178619384766, 103.13129425048828, 103.03521156311035, 103.71279716491699, 102.99444198608398, 102.86378860473633, 103.51967811584473, 103.99484634399414, 103.60336303710938, 103.12795639038086, 103.28173637390137, 102.9965877532959, 103.56950759887695, 103.7147045135498, 103.60240936279297, 104.02560234069824, 103.63554954528809, 103.2712459564209, 103.55305671691895, 103.33132743835449, 103.73163223266602, 103.6233901977539, 104.00867462158203, 103.62553596496582, 103.49917411804199, 103.67727279663086, 103.75642776489258, 103.55758666992188, 103.43384742736816, 103.21426391601562, 103.09767723083496, 103.06310653686523, 103.39760780334473, 103.74832153320312, 103.39140892028809, 103.2865047454834, 103.60479354858398, 103.48773002624512, 102.92291641235352, 103.08122634887695, 103.76954078674316, 103.45005989074707, 103.0733585357666, 103.58214378356934, 103.03258895874023, 103.44052314758301, 103.09410095214844, 103.31153869628906, 102.94318199157715, 103.12843322753906, 103.03664207458496, 101.73416137695312, 101.95159912109375, 101.6073226928711, 101.74393653869629, 101.74012184143066, 810.1675510406494]
+WARNING:tensorflow:Using temporary folder as model directory: /tmp/tmplpts_c__
+Evaluating
+2018-11-10 04:44:00.983612: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1490] Adding visible gpu devices: 0
+2018-11-10 04:44:00.983672: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-11-10 04:44:00.983678: I tensorflow/core/common_runtime/gpu/gpu_device.cc:977]      0 
+2018-11-10 04:44:00.983683: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990] 0:   N 
+2018-11-10 04:44:00.983858: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1103] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 30397 MB memory) -> physical GPU (device: 0, name: Tesla V100-SXM2-32GB, pci bus id: 0000:15:00.0, compute capability: 7.0)
+Top-1 accuracy: 0.10000000474974513 %
+Top-5 accuracy: 0.5379999987781048 %
+done
+11-09-2018 22:41:37 [INFO] /lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py --caffe_framework_family caffe --caffe_launcher /lustre1/sfleisch/dlbs/scripts/launchers/caffe.py --caffe_bench_path /workspace/nvtfcnn_benchmarks --caffe_env PYTHONPATH=/workspace/nvtfcnn_benchmarks CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 CUDA_VISIBLE_DEVICES=0 --caffe_action train --caffe_model_file 1e2676799d434b87b717a0a74ff2284b.model.prototxt --caffe_solver_file 1e2676799d434b87b717a0a74ff2284b.solver.prototxt --caffe_model_dir /workspace/model --caffe_display_every 0 --caffe_solver net: '/workspace/model/1e2676799d434b87b717a0a74ff2284b.model.prototxt'
+ max_iter: 1000
+ test_interval: 0
+ snapshot: 0
+ display: 1
+ snapshot_after_train: false
+ base_lr: 0.01
+ lr_policy: 'fixed'
+ solver_mode: GPU
+  --caffe_args --solver=/workspace/model/1e2676799d434b87b717a0a74ff2284b.solver.prototxt   --gpu=0 --caffe_data_dir  --caffe_mirror true --caffe_data_mean_file  --caffe_data_mean_file_path  --caffe_data_mean_file_name  --caffe_data_backend LMDB --caffe_docker_args -i --security-opt seccomp=unconfined --pid=host --network=host --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/models/resnet_50:/workspace/model --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=:/workspace/image_mean --rm  --caffe_host_path /usr1/sfleisch/projects/caffe_tensorflow_caffe/build/tools --caffe_host_libpath  --caffe_framework_title   Caffe --caffe_singularity_image  --caffe_singularity_args --nv -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks/models/resnet_50:/workspace/model -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache -B /lustre1/shruti/imagenet_data:/workspace/data -B :/workspace/image_mean -B /dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm  --caffe_nvidia_precision float16 --caffe_nvidia_solver_precision FLOAT16 --caffe_nvidia_forward_precision FLOAT16 --caffe_nvidia_backward_precision FLOAT16 --caffe_nvidia_forward_math_precision FLOAT16 --caffe_nvidia_backward_math_precision FLOAT16 --caffe_bvlc_docker_image hpe/bvlc_caffe:cuda9-cudnn7 --caffe_nvidia_docker_image nvcr.io/nvidia/caffe:18.06-py2 --caffe_intel_docker_image hpe/intel_caffe:cpu --mxnet_launcher /lustre1/sfleisch/dlbs/scripts/launchers/mxnet.py --mxnet_env  --mxnet_bench_path /workspace/nvtfcnn_benchmarks --mxnet_python_path /workspace --mxnet_cudnn_autotune true --mxnet_kv_store device --mxnet_data_dir  --mxnet_preprocess_threads 4 --mxnet_prefetch_buffer 10 --mxnet_args --model=resnet_50 --model_opts='{}' --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --kv_store=device --data_dir=/workspace/data --dtype=float16 --preprocess_threads=4 --prefetch_buffer=10 --mxnet_docker_image hpe/mxnet:cuda9-cudnn7 --mxnet_docker_args -ti --security-opt seccomp=unconfined --pid=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --volume=/lustre1/sfleisch/dlbs/python:/workspace --volume=/lustre1/sfleisch/dlbs/python/mxnet_benchmarks:/workspace/mxnet_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm  --mxnet_singularity_image  --mxnet_singularity_args -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /lustre1/shruti/imagenet_data:/workspace/data --nv  --mxnet_host_python_path /usr1/sfleisch/projects/mxnet/python --mxnet_host_libpath  --tensorflow_data_dir /lustre1/shruti/imagenet_data --tensorflow_docker_args -ti --security-opt seccomp=unconfined --pid=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --volume=/lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm  --tensorflow_docker_image  --tensorflow_singularity_image /lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img --tensorflow_singularity_args -B /lustre1/sfleisch/dlbs/python/nvtfcnn_benchmarks:/workspace/nvtfcnn_benchmarks -B /lustre1/shruti/imagenet_data:/workspace/data --nv /lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img --tensorflow_bench_path /workspace/nvtfcnn_benchmarks --tensorflow_env PYTHONPATH=/workspace/nvtfcnn_benchmarks CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 CUDA_VISIBLE_DEVICES=0 TF_DISABLE_CUDNN_TENSOR_OP_MATH=false --tensorflow_host_libpath  --tensorflow_log_dir  --tf_cnn_use_nccl true --tf_cnn_var_update replicated --tf_cnn_local_parameter_device cpu --tf_cnn_data_name  --tf_cnn_distortions false --tf_cnn_num_intra_threads 0 --tf_cnn_resize_method bilinear --tensorflow_launcher /lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py --tf_cnn_use_xla false --tf_cnn_launcher /lustre1/sfleisch/dlbs/scripts/launchers/tf_cnn_benchmarks.sh --tf_cnn_args --per_gpu_thread_count=1 --xla=false --use_fp16=true --use_tf_layers=true --staged_vars=false --model=resnet_50 --eval=false --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --display_every=1000 --device=gpu --data_format=NCHW --variable_update=replicated --all_reduce_spec=nccl --local_parameter_device=cpu --data_dir=/lustre1/shruti/imagenet_data  --distortions=false --num_intra_threads=0 --resize_method=bilinear --train_dir= --nvcnn_use_nccl true --nvcnn_launcher /lustre1/sfleisch/dlbs/scripts/launchers/nvcnn.sh --nvcnn_display_every 1000 --nvcnn_use_distort_color false --nvcnn_use_xla false --nvcnn_args --model=resnet_50 --data_dir=/workspace/data --batch_size=64 --nstep_burnin=100 --num_batches=1100 --nccl --noxla --nodistort_color --num_gpus=1 --display_every=1000 --log_dir= --fp16 --nvcnn_hvd_launcher /lustre1/sfleisch/dlbs/scripts/launchers/nvcnn_hvd.sh --nvcnn_hvd_display_every 1000 --nvcnn_hvd_use_distort_color false --nvcnn_hvd_use_xla false --nvcnn_hvd_args -m resnet_50 --data_dir=/workspace/data --batch_size=64 --nstep_burnin=100 --num_batches=1100 --noxla --nodistort_color --display_every=1000 --log_dir= --fp16 --nvtfcnn_launcher /lustre1/sfleisch/dlbs/scripts/launchers/nvtfcnn.py --nvtfcnn_display_every 10 --nvtfcnn_iter_unit batch --nvtfcnn_args --model resnet_50 --data_dir=/workspace/data --batch_size=64 --num_iter=1000 --iter_unit=batch --display_every=10 --log_dir= --precision=fp16 --pytorch_launcher /lustre1/sfleisch/dlbs/scripts/launchers/pytorch.sh --pytorch_env  --pytorch_bench_path /lustre1/sfleisch/dlbs/python --pytorch_data_dir  --pytorch_data_backend caffe_lmdb --pytorch_cudnn_benchmark true --pytorch_cudnn_fastest false --pytorch_data_shuffle false --pytorch_num_loader_threads 4 --pytorch_data_loader_only false --pytorch_args --model=resnet_50 --forward_only=false --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --data_dir=/lustre1/shruti/imagenet_data --data_backend=caffe_lmdb --data_shuffle=false --num_loader_threads=4 --dtype=float16 --cudnn_benchmark=true --cudnn_fastest=false --data_loader_only=false --pytorch_docker_image hpe/pytorch:cuda9-cudnn7 --pytorch_docker_args -i --security-opt seccomp=unconfined --pid=host --ipc=host --volume=/lustre1/sfleisch/dlbs/python/pytorch_benchmarks:/workspace/pytorch_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/lustre1/shruti/imagenet_data:/workspace/data --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --rm  --pytorch_host_python_path /usr1/sfleisch/projects/pytorch/python --pytorch_host_libpath  --exp_status  --exp_status_msg  --exp_proj  --exp_backend nvtfcnn --exp_framework tensorflow --exp_framework_title TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks --exp_framework_family tensorflow --exp_framework_ver 1.11.0 --exp_framework_fork  --exp_framework_commit  --exp_model resnet_50 --exp_model_opts {} --exp_model_title  --exp_num_warmup_batches 100 --exp_num_batches 1000 --exp_phase training --exp_data_dir /lustre1/shruti/imagenet_data --exp_data real --exp_data_store  --exp_dtype float16 --exp_use_tensor_core true --exp_effective_batch 64 --exp_replica_batch 64 --exp_gpus 0 --exp_num_local_replicas 1 --exp_num_local_gpus 1 --exp_num_replicas 1 --exp_num_gpus 1 --exp_device_type gpu --exp_device_title  --exp_cuda 9.2 --exp_cudnn 7.1 --exp_id 1e2676799d434b87b717a0a74ff2284b --exp_log_file /lustre1/sfleisch/dlbs/benchmarks/tensorflow/nvtfcnn/v100_pcie_XL270d_gen10/1530/orig/real/float16/resnet_50_64_0_1N_test1_T1.log --exp_rerun false --exp_node_id apollo_6500_gen10 --exp_num_nodes 1 --exp_node_nic  --exp_docker false --exp_docker_launcher nvidia-docker --exp_docker_image  --exp_docker_args --rm --exp_singularity true --exp_singularity_launcher singularity --exp_singularity_image /lustre1/sfleisch/tensorflow-1.11.0-9.2-7.1.img --exp_singularity_args --nv --monitor_timeseries time:str:1,mem_virt:float:2,mem_res:float:3,mem_shrd:float:4,cpu:float:5,mem:float:6,power:float:7,gpus:float:8: --monitor_frequency 5 --monitor_pid_folder /dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250 --monitor_backend_pid_folder /dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250 --monitor_launcher /lustre1/sfleisch/dlbs/scripts/resource_monitor.sh --runtime_launcher  --runtime_cuda_cache /dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 --runtime_visible_gpus 0 --runtime_EXPORT_CUDA_VISIBLE_DEVICES CUDA_VISIBLE_DEVICES=0 --runtime_EXPORT_CUDA_CACHE_PATH CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 --runtime_python python --exp_mpirun /lustre1/sfleisch/openmpi/bin/mpirun --exp_mpirun_args -allow-run-as-root -bind-to none -map-by slot -x NCCL_DEBUG=INFO -mca pml ob1 -mca btl openib --exp_mpirun_hosts 172.31.30.40:1 --exp_mpirun_num_tasks 1 --exp_sys_info  --caffe2_launcher /lustre1/sfleisch/dlbs/scripts/launchers/caffe2.sh --caffe2_data_dir  --caffe2_num_decode_threads 1 --caffe2_float16_compute true --caffe2_data_backend lmdb --caffe2_args --model=resnet_50  --batch_size=64 --num_batches=1000 --num_warmup_batches=100 --num_gpus=1 --device=gpu --data_dir=/lustre1/shruti/imagenet_data --data_backend=lmdb --dtype=float16 --enable_tensor_core --num_decode_threads=1 --float16_compute=true --caffe2_docker_image hpe/caffe2:cuda9-cudnn7 --caffe2_docker_args -i --security-opt seccomp=unconfined --pid=host --volume=/lustre1/sfleisch/dlbs/python/caffe2_benchmarks:/workspace/caffe2_benchmarks --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --volume=/lustre1/shruti/imagenet_data:/workspace/data --rm  --caffe2_singularity_image  --caffe2_bench_path /lustre1/sfleisch/dlbs/python --caffe2_host_python_path /usr1/sfleisch/projects/caffe2/build --caffe2_host_libpath /usr1/sfleisch/projects/caffe2/build/caffe2 --tensorrt_launcher /lustre1/sfleisch/dlbs/scripts/launchers/tensorrt.sh --tensorrt_env CUDA_CACHE_PATH=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250 --tensorrt_cache /usr1/sfleisch/.tensorrt_cache --tensorrt_report_frequency -1 --tensorrt_no_batch_times false --tensorrt_resize_method resize --tensorrt_num_prefetchers 3 --tensorrt_num_decoders 3 --tensorrt_prefetch_queue_size 3 --tensorrt_prefetch_batch_size 64 --tensorrt_inference_queue_size 3 --tensorrt_fake_decoder false --tensorrt_fake_inference false --tensorrt_args --model resnet_50 --model_file /lustre1/sfleisch/dlbs/models/resnet_50/1e2676799d434b87b717a0a74ff2284b.model.prototxt --batch_size 64 --dtype float16 --num_warmup_batches 100 --num_batches 1000  --input data --output prob --cache /usr1/sfleisch/.tensorrt_cache --report_frequency=-1  --gpus 0 --data_dir=/lustre1/shruti/imagenet_data --resize_method resize --num_prefetchers 3 --num_decoders 3 --prefetch_queue_size 3 --prefetch_batch_size 64 --inference_queue_size 3   --data_name=images --tensorrt_model_file 1e2676799d434b87b717a0a74ff2284b.model.prototxt --tensorrt_model_dir /lustre1/sfleisch/dlbs/models/resnet_50 --tensorrt_docker_image hpe/tensorrt:cuda9-cudnn7 --tensorrt_docker_args -i --security-opt seccomp=unconfined --pid=host --volume=/lustre1/sfleisch/dlbs/models/resnet_50:/workspace/model --volume=/dev/shm/cudacache_eeaebb033ba7439abc93bbf7908c7250:/workspace/cuda_cache --volume=/usr1/sfleisch/.tensorrt_cache:/workspace/tensorrt_cache --volume=/dev/shm/monitor_eeaebb033ba7439abc93bbf7908c7250:/workspace/tmp --volume=/lustre1/shruti/imagenet_data:/workspace/data --rm  --tensorrt_profile false --tensorrt_input data --tensorrt_output prob --tensorrt_host_path /lustre1/sfleisch/dlbs/src/tensorrt/build --tensorrt_host_libpath  --tensorrt_data_dir  --tensorrt_data_name images --exp_proj_parent_name  --exp_proj_name Apollo 6500 Gen10_TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks Singularity Test --exp_proj_description TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks's deep learning benchmarks on Apollo 6500 Gen10 --exp_experimenter_name Stephen Fleischman <stephen.fleischman@hpe.com> --exp_experiment_name Apollo 6500 Gen10_TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks_Trial_1 --exp_experiment_description TensorFlow 1.11.0 NVidia TensorFlow CNN Benchmarks's deep learning benchmarks on Apollo 6500 Gen10 for DLPG (trial 1) --exp_node_title Apollo 6500 Gen10 --exp_gpu_title Tesla V100-V100-32GB --runtime_env_PATH /usr1/sfleisch/anaconda3/bin:/lustre1/sfleisch/dlbs/scripts:/usr1/sfleisch/anaconda3/bin:/lustre1/sfleisch/openmpi/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/opt/slurm/custom:/opt/slurm/bin:/opt/slurm/sbin:/admin/slurm/custom:/admin/slurm/bin:/admin/slurm/sbin:/usr/lib64/qt-3.3/bin:/usr1/sfleisch/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibutils/bin --exp_gpufreq 1530 --exp_test test1 --exp_trial 1
+11-09-2018 22:41:37 [INFO] Can connect to zeusn040
+__exp.framework_title__="TensorFlow"
+__results.use.time__=[]
+__results.use.mem_virt__=[]
+__results.use.mem_res__=[]
+__results.use.mem_shrd__=[]
+__results.use.cpu__=[]
+__results.use.mem__=[]
+__results.use.power__=[]
+__results.use.gpus__=[]

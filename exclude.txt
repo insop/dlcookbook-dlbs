@@ -1,0 +1,11 @@
+Anac*sh
+__pycache__
+*.log
+*.deb
+*.whl
+*.pyc
+*.tgz
+*.txz
+*.tbz
+*.tar
+*.img

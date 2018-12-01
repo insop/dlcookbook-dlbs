@@ -16,11 +16,26 @@
 """
 from __future__ import absolute_import
 from __future__ import print_function
+import os
+from os import stat
+from pwd import getpwuid
+from glob import glob
+from shutil import rmtree
 import argparse
 import pathlib
 import sys
 import re
 from subprocess import call
+
+def cleanup_tmp():
+    user=getpwuid(os.getuid()).pw_name
+    for t in glob('/tmp/tmp*'):
+        try:
+            st=os.stat(t)
+            userinfo = getpwuid(st.st_uid).pw_name
+            if userinfo==user: rmtree(t)
+        except IOException:
+            pass
 
 models_re= [r"alexnet$",r"googlenet$",r"inception_resnet_v2$",r"inception_v[34]$",r"overfeat$",r"resnet_\d+$",r"trivial$",r"vgg_\d+$",r"xception$"]
 
@@ -40,6 +55,9 @@ def main():
         parser.add_argument( '--model', type=allowed_models, required=True,
                              default='', 
                              help="A model to benchmark - must match one of the patterns: {}".format(' | '.join(models_re)))
+        #parser.add_argument('--cleanup', action='store_const', default = True, const = True, dest='cleanup')
+        #parser.add_argument('--no-cleanup', action='store_const', const = False, dest='cleanup')
+
         args, passthru = parser.parse_known_args()
         m=re.match("(resnet|vgg)_(\d+)",args.model)
         if m:
@@ -55,11 +73,15 @@ def main():
                 print("Child was terminated by signal", -retcode, file=sys.stderr)
         except OSError as e:
             print("Execution failed:", e)
+        finally:
+            if args.cleanup: cleanup_tmp()
         print('done')
     except Exception as e:
         print('nvtfcnn_benchmarks/benchmark.py: Something failed.')
         print('cmd: {}'.format(' '.join(cmd)))
         sys.exit(-1)
+    #finally:
+    #    if args.cleanup: cleanup_tmp()
 
 if __name__ == '__main__':
     main()

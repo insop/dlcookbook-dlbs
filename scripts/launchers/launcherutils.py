@@ -114,7 +114,7 @@ class launcherutils(object):
                         format(self.vdict['exp_mpirun'])
                 raise LauncherException
         except (KeyError, LauncherException) as e:
-             err_msg+=type(e)+"\n"+err_msg
+             err_msg+=str(type(e))+"\n"+err_msg
              raise ValueError(err_msg)
         else:
             self.mpirun_cmd=mpirun_cmd
@@ -184,16 +184,22 @@ class launcherutils(object):
     def _error(self):
         fn=self.logfile.name
         self.logfile.close()
+        found=False
+        nccl_error=False
         with open(fn,'r') as r:
             for l in r:
                 l=l.strip()
+                if re.search('nccl.* failed',l):
+                    nccl_error=True
+                    break
                 if re.search('^__results.time__=[\d\.]',l):
                     found=True
                     break
             else:
+                nccl_error=False
                 found=False
         self.logfile=open(fn,'a')
-        return not found
+        return (not found) or nccl_error
 
     # All of the scripts had the same code except for the error function which only differed by the pattern to search for. SO
     # I encapsulated it here.

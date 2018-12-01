@@ -1,0 +1,129 @@
+head	1.2;
+access;
+symbols;
+locks
+	sfleisch:1.2; strict;
+comment	@# @;
+
+
+1.2
+date	2018.10.10.00.36.26;	author sfleisch;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2018.10.09.23.10.06;	author sfleisch;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@from launcherutils import launcherutils
+import sys
+import traceback
+
+class dummy():
+    def __init__(self):
+        self.vdict= {
+            'exp_log_file' : '0.1.2.3.4.5.6.7_alexnet_owt_4096.log', 
+            'exp_phase' : 'training',
+            'exp_replica_batch' : 512,
+            'exp_effective_batch' : 4096,
+            'exp_num_batches' : 100
+        }
+        self.logfile=open(self.vdict['exp_log_file'],'a')
+    def _error(self):
+        return False
+    def logwarn(self,s):
+        print(s)
+    def update_error_file(self):
+        pass
+
+def caffe_postprocess_log(self):
+
+    print(self.vdict)
+    if self._error():
+        self.logwarn('error in "{}" with effective batch {} (per device batch {})'.\
+             format(self.vdict['exp_log_file'],effective_batch,self.vdict['exp_device_batch']))
+        self.update_error_file()
+
+        error_hint,self.logfile=launcherutils.grep(self.logfile,"Check failed: .*",self.GrepRet.last)
+        print('__exp.status__= "failure"', file=self.logfile)
+        print('__exp.status_msg__= "Error has been found in Caffe log file ({})."'.format(error_hint),file=self.logfile) 
+        return False
+    else:
+        # Here we know if we are in time or train mode.
+        if self.vdict['exp_phase']== "inference":
+            elapsed_time,self.logfile = float(launcherutils.grep(r,'Average Forward pass:',group=0,split=8,occurence=self.GrepRet.last))
+        else:
+            try:
+                print('here ',self.logfile.name)
+                start_time,self.logfile=launcherutils.grep(self.logfile,'^I(\d\d\d\d .*?) .*Solver ',group=1,
+                                  occurence=launcherutils.GrepRet.last)
+                start_time=launcherutils.gettimestamp(start_time)
+
+                end_time,self.logfile=launcherutils.grep(self.logfile,'^I(\d\d\d\d .*?) .*Optimization Done',group=1,
+                                  occurence=launcherutils.GrepRet.last)
+                end_time=launcherutils.gettimestamp(end_time)
+                elapsed_time=1000.0*(end_time-start_time)/self.vdict['exp_num_batches']
+            except Exception as e:
+                exc_type, exc_value, exc_traceback = sys.exc_info()
+                traceback.print_tb(exc_traceback, limit=1, file=sys.stdout)
+                self.logwarn('Exception {} Was not able to calculate the execution time from the log file.'.format(type(e)))
+                return
+        throughput=1000*self.vdict['exp_effective_batch']/elapsed_time
+        print('__results.time__= {}'.format(elapsed_time))
+        print('__results.throughput__= {}'.format(throughput))
+        print('__results.time__= {}'.format(elapsed_time),file=self.logfile)
+        print('__results.throughput__= {}'.format(throughput),file=self.logfile)
+    return True
+def main():
+    caffe_postprocess_log(dummy())
+
+if __name__=="__main__":
+    main()
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d2 2
+d24 2
+a25 1
+    if self_error():
+d30 1
+a30 1
+        error_hint=self.grep(self.logfile,"Check failed: .*" $exp_file,self.GrepRet.last)
+d36 2
+a37 2
+        if phase = "inference":
+            tm = float(self.grep(r,'Average Forward pass:',group=0,split=8,occurence=co.GrepRet.last))
+d40 8
+a47 2
+                start_time=float(self.grep(r,'^I(\d\d\d\d .*?) .*Solver ',group=1,occurence=launcherutils.launcherutils.GrepRet.last))
+                end_time=float(self.grep(r,'^I(\d\d\d\d .*?) .*Optimization Done',group=1,occurence=launcherutils.launcherutils.GrepRet.last))
+d49 4
+a52 2
+            except Exception:
+                self.logwarn('Was not able to calculate the execution time from the log file.')
+d54 3
+a56 1
+        throughput=1000*co.vdict['exp_effective_batch']/elapsed_time
+a58 1
+    fi
+d61 1
+d63 2
+a64 1
+    logfile=
+@

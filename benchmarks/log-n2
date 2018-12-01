@@ -1,0 +1,18 @@
+nohup: ignoring input
+Will execute experimenter run.
+from bench_root
+--------------------------------------------------------------
+Experimenter pid 26472. Run this to gracefully terminate me:
+	kill -USR1 26472
+I will terminate myself as soon as current benchmark finishes.
+--------------------------------------------------------------
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+report_and_exit skipped The replica batch size (256) is too large for given SW/HW configuration.
+__launcher.total_experiments__=22
+__launcher.active_experiments__=2
+__launcher.failed_experiments__=2
+__launcher.skipped_experiments__=0
+__launcher.disabled_experiments__=20
+__launcher.start_time__="2018-11-10 15:59:53.083082"
+__launcher.end_time__="2018-11-10 15:59:53.216919"
+__launcher.hours__=3.717694444444445e-05
