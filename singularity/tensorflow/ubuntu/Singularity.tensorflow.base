@@ -46,8 +46,26 @@ FROM: tensorflow-!{TF_VERSION}-!{CUDA_VERSION}-!{CUDNN_VERSION}-prelim.img
     echo $TF_WHL
 
 
-    python -m pip install --no-cache-dir h5py tensorflow_hub tensornets opencv-python statsmodels seaborn imgaug pycocotools gensim nltk
-    pip install keras_applications keras_preprocessing keras --no-deps
+    #Gutenberg
+    # requires BSD-DB
+    apt-get install -y libdb-dev 
+    pip install --no-cache-dir bsddb3
+
+    git clone https://github.com/c-w/Gutenberg.git gutenberg
+    cd gutenberg
+    pip install -r requirements.pip
+    echo "BEFORE SED"
+    sed -i -e '50c\ \ \ \ long_description=open("README.rst","r",encoding="utf-8").read(),' setup.py
+    echo "AFTER SED"
+
+    echo "INSTALL GUTENBERG"
+    python ./setup.py install
+    echo "AFTER GUTENBERG"
+
+    python -m pip install --no-cache-dir \
+          h5py opencv-python statsmodels seaborn imgaug pycocotools gensim nltk gym tqdm pyrouge aiohttp cleverhans
+          
+
     # TensorFlow Hub
 
     ln -sf /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
@@ -76,15 +94,15 @@ FROM: tensorflow-!{TF_VERSION}-!{CUDA_VERSION}-!{CUDNN_VERSION}-prelim.img
 
     # Download and build TensorFlow.
     # Install the latest TensorFlow release
-    cd /opt
-    tarball_url=`wget -qO- https://api.github.com/repos/tensorflow/tensorflow/releases/latest |grep '"tarball_url"'|awk '{print $2}'|sed -e "s/,$//" -e 's/"//g'`
-    wget $tarball_url -O tensorflow.tgz
-    tar xvzf tensorflow.tgz && rm tensorflow.tgz
-    if [ !{not} -d tensorflow ];then
-        mv tensorflow* tensorflow
-    fi
-    # The not macro is a kludge since I'm using the exclamation point as a macro indicator.
     if [ !{not} -f /tmp/tensorflow_pkg/${TF_WHL} ];then
+        cd /opt
+        tarball_url=`wget -qO- https://api.github.com/repos/tensorflow/tensorflow/releases/latest |grep '"tarball_url"'|awk '{print $2}'|sed -e "s/,$//" -e 's/"//g'`
+        wget $tarball_url -O tensorflow.tgz
+        tar xvzf tensorflow.tgz && rm tensorflow.tgz
+        if [ !{not} -d tensorflow ];then
+            mv tensorflow* tensorflow
+        fi
+        # The not macro is a kludge since I'm using the exclamation point as a macro indicator.
         cd /opt/tensorflow
         LD_LIBRARY_PATH=/usr/local/cuda/lib64/stubs:${NCCL_INSTALL_PATH}/lib:${LD_LIBRARY_PATH}:/usr/lib/x86_64-linux-gnu \
             tensorflow/tools/ci_build/builds/configured GPU \
@@ -97,6 +115,7 @@ FROM: tensorflow-!{TF_VERSION}-!{CUDA_VERSION}-!{CUDNN_VERSION}-prelim.img
         export PYTHON_BIN_PATH=!{PYTHON_BIN}/python
         export LD_LIBRARY_PATH=/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH 
         bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+        rm -rf tensorflow/
     fi
     !{PYTHON_BIN}/pip --no-cache-dir install --upgrade /tmp/tensorflow_pkg/${TF_WHL}
     rm -rf ~/.cache/bazel
@@ -105,6 +124,10 @@ FROM: tensorflow-!{TF_VERSION}-!{CUDA_VERSION}-!{CUDNN_VERSION}-prelim.img
     mkdir -p /scrap/jenkins/workspace/hpc-power-pack/label/r-vmb-ubuntu16-u4-x86-64-MOFED-CHECKER
     ln -sf  /opt /scrap/jenkins/workspace/hpc-power-pack/label/r-vmb-ubuntu16-u4-x86-64-MOFED-CHECKER/hpcx_root
     ln -sf /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
+
+    pip install --no-cache-dir --no-deps keras_applications keras_preprocessing keras
+    pip install --no-cache-dir tensorflow_hub tensornets tensorflow_probability  mesh-tensorflow tensorflow-serving-api-python3
+    pip install tensor2tensor
 
     export PATH=$HPCX_MPI_DIR/bin:$PATH
     export OLD_LD_LIBRARY_PATH=$LD_LIBRARY_PATH
