@@ -46,9 +46,9 @@ FROM: tensorflow-!{TF_VERSION}-!{CUDA_VERSION}-!{CUDNN_VERSION}-prelim.img
     echo $TF_WHL
 
 
-    pip install h5py
-    pip install keras_applications --no-deps
-    pip install keras_preprocessing --no-deps
+    python -m pip install --no-cache-dir h5py tensorflow_hub tensornets opencv-python statsmodels seaborn imgaug pycocotools gensim nltk
+    pip install keras_applications keras_preprocessing keras --no-deps
+    # TensorFlow Hub
 
     ln -sf /usr/local/cuda/lib64/stubs/libcuda.so /usr/local/cuda/lib64/stubs/libcuda.so.1
 
@@ -80,10 +80,12 @@ FROM: tensorflow-!{TF_VERSION}-!{CUDA_VERSION}-!{CUDNN_VERSION}-prelim.img
     tarball_url=`wget -qO- https://api.github.com/repos/tensorflow/tensorflow/releases/latest |grep '"tarball_url"'|awk '{print $2}'|sed -e "s/,$//" -e 's/"//g'`
     wget $tarball_url -O tensorflow.tgz
     tar xvzf tensorflow.tgz && rm tensorflow.tgz
-    #mv tensorflow* tensorflow
+    if [ !{not} -d tensorflow ];then
+        mv tensorflow* tensorflow
+    fi
     # The not macro is a kludge since I'm using the exclamation point as a macro indicator.
-    if [ !{not} /tmp/tensorflow_pkg/${TF_WHL} ];then
-        cd tensorflow
+    if [ !{not} -f /tmp/tensorflow_pkg/${TF_WHL} ];then
+        cd /opt/tensorflow
         LD_LIBRARY_PATH=/usr/local/cuda/lib64/stubs:${NCCL_INSTALL_PATH}/lib:${LD_LIBRARY_PATH}:/usr/lib/x86_64-linux-gnu \
             tensorflow/tools/ci_build/builds/configured GPU \
             /usr/local/bin/bazel build -c opt --copt=-march="broadwell" --config=cuda //tensorflow/tools/pip_package:build_pip_package \
